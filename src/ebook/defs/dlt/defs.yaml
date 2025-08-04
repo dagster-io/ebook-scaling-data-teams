@@ -1,0 +1,15 @@
+type: dagster_dlt.DltLoadCollectionComponent
+
+attributes:
+  loads:
+    - source: .loads.my_load_source
+      pipeline: .loads.my_load_pipeline
+
+post_processing:
+  assets:
+    - target: "*"
+      attributes:
+        group_name: "ingest"
+        tags:
+          team_size: "medium"
+          owner: "data_engineering"

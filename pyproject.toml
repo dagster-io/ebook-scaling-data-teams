@@ -1,0 +1,36 @@
+[project]
+name = "ebook"
+requires-python = ">=3.9,<=3.13.3"
+version = "0.1.0"
+dependencies = [
+    "dagster==1.11.2",
+    "dagster-dbt",
+    "dagster-duckdb",
+    "dagster-dlt",
+    "dagster-sling",
+    "dagster-evidence",
+    "dbt-duckdb",
+    "pandas",
+    "numpy",
+]
+
+[dependency-groups]
+dev = [
+    "dagster-webserver",
+    "dagster-dg-cli",
+    "pytest",
+    "ruff",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.dg]
+directory_type = "project"
+
+[tool.dg.project]
+root_module = "ebook"
+registry_modules = [
+    "ebook.components.*",
+]

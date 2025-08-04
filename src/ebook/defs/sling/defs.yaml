@@ -1,0 +1,29 @@
+type: dagster_sling.SlingReplicationCollectionComponent
+
+attributes:
+  sling:
+    connections:
+      - name: MY_POSTGRES
+        type: postgres
+        host: localhost
+        port: 5432
+        database: test_db
+        user: test_user
+        password: test_pass
+      - name: MY_DUCKDB
+        type: duckdb
+        instance: "{{ env('DUCKDB_DATABASE', '/tmp/dbt_project.duckdb') }}"
+  replications:
+    - path: replication.yaml
+
+post_processing:
+  assets:
+    - target: "kind:sling"
+      attributes:
+        group_name: "ingest"
+        tags:
+          team_size: "small"
+          owner: "data_engineering"
+    - target: "not kind:sling"
+      attributes:
+        group_name: "raw_source"

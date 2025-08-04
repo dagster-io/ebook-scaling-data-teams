@@ -1,0 +1,19 @@
+type: dagster_evidence.EvidenceProject
+
+attributes:
+  project_path: '{{ project_root }}/dashboard'
+  asset:
+    key: dashboard
+    deps:
+      - orders
+      - customers
+  deploy_command: 'echo "Dashboard built at $EVIDENCE_BUILD_PATH"'
+
+post_processing:
+  assets:
+    - target: "*"
+      attributes:
+        group_name: "visualize"
+        tags:
+          team_size: "medium"
+          owner: "data_analysts"

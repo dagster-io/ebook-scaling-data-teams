@@ -1,0 +1,13 @@
+type: dagster_dbt.DbtProjectComponent
+
+attributes:
+  project: '{{ project_root }}/dbt_project'
+
+post_processing:
+  assets:
+    - target: "*"
+      attributes:
+        group_name: "transform"
+        tags:
+          team_size: "small"
+          owner: "analytics_engineering"
