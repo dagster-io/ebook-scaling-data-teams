@@ -7,7 +7,7 @@ import pytest
 import ebook.defs
 from ebook.defs.assets.analysis import customer_analysis
 from ebook.defs.resources import duckdb_resource
-from tests.fixtures import docker_compose  # noqa: F401
+from tests.fixtures import dbt_project, docker_compose  # noqa: F401
 
 
 @pytest.fixture()
@@ -16,7 +16,7 @@ def defs():
 
 
 @pytest.mark.integration
-def test_1_person_team(defs, docker_compose):  # noqa: F811
+def test_1_person_team(defs, docker_compose, dbt_project):  # noqa: F811
     result = dg.materialize(
         assets=[
             defs.get_assets_def(dg.AssetKey(["target", "data", "customers"])),

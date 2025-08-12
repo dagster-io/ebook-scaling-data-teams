@@ -1,3 +1,4 @@
+import os
 import subprocess
 import time
 from pathlib import Path
@@ -29,3 +30,17 @@ def docker_compose():
 
     # Tear down Docker Compose
     subprocess.run(["docker", "compose", "-f", file_path, "down"], check=True)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def dbt_project():
+    dir = os.path.join(
+        os.path.dirname(__file__),
+        "../dbt_project",
+    )
+
+    cmd = ["dbt", "parse", "--project-dir", dir, "--profiles-dir", dir]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+
+    if result.returncode != 0:
+        pytest.fail(f"dbt command failed: {result.returncode}")
