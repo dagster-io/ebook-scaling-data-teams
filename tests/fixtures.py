@@ -8,7 +8,7 @@ import pytest
 @pytest.fixture(scope="session", autouse=True)
 def docker_compose():
     # Start Docker Compose
-    file_path = Path(__file__).absolute().parent / "docker-compose.yaml"
+    file_path = Path(__file__).absolute().parent.parent / "docker-compose.yaml"
     subprocess.run(
         ["docker", "compose", "-f", file_path, "up", "--build", "-d"],
         check=True,

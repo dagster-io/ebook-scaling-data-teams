@@ -1,21 +1,18 @@
 with source as (
 
-    {#-
-    Normally we would select from the table here, but we are using seeds to load
-    our data in this project
-    #}
-    select * from {{ source('main', 'raw_orders') }}
+    select * from {{ source('main', 'data_orders') }}
 
 ),
 
 renamed as (
 
     select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
+        order_id,
+        customer_id,
+        payment_id,
+        quantity,
+        total_amount,
+        order_date
     from source
 
 )
