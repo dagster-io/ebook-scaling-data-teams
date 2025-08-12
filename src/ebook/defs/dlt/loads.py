@@ -1,5 +1,4 @@
 import dlt
-from dlt.sources.filesystem import filesystem
 
 
 @dlt.source
