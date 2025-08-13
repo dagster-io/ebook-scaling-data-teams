@@ -1,20 +1,16 @@
 with source as (
 
-    {#-
-    Normally we would select from the table here, but we are using seeds to load
-    our data in this project
-    #}
-    select * from {{ source('main', 'raw_customers') }}
+    select * from {{ source('main', 'data_customers') }}
 
 ),
 
 renamed as (
 
     select
-        id as customer_id,
+        customer_id,
         first_name,
-        last_name
-
+        last_name,
+        email
     from source
 
 )

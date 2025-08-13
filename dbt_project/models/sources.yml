@@ -1,15 +1,15 @@
 sources:
   - name: main
     tables:
-      - name: raw_orders
+      - name: data_orders
         meta:
           dagster:
             asset_key: ["target", "data", "orders"]
-      - name: raw_customers
+      - name: data_customers
         meta:
           dagster:
             asset_key: ["target", "data", "customers"]
-      - name: raw_payments
+      - name: data_payments
         meta:
           dagster:
             asset_key: ["target", "data", "payments"]
