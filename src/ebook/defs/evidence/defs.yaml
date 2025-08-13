@@ -5,7 +5,6 @@ attributes:
   asset:
     key: dashboard
     deps:
-      - orders
       - customers
   deploy_command: 'echo "Dashboard built at $EVIDENCE_BUILD_PATH"'
 
