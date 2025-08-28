@@ -6,6 +6,7 @@ import pytest
 
 from ebook.defs.assets.analysis import customer_analysis
 from ebook.defs.resources import duckdb_resource
+from tests.fixtures import dbt_project, defs, docker_compose  # noqa: F401
 
 
 @pytest.fixture()
