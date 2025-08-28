@@ -1072,11 +1072,13 @@ dependencies = [
     { name = "dagster" },
     { name = "dagster-aws" },
     { name = "dagster-dbt" },
+    { name = "dagster-dg-cli" },
     { name = "dagster-dlt" },
     { name = "dagster-duckdb" },
     { name = "dagster-evidence" },
     { name = "dagster-prometheus" },
     { name = "dagster-sling" },
+    { name = "dagster-webserver" },
     { name = "dbt-duckdb" },
     { name = "dlt", extra = ["parquet", "s3"] },
     { name = "numpy" },
@@ -1085,8 +1087,6 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "dagster-dg-cli" },
-    { name = "dagster-webserver" },
     { name = "pytest" },
     { name = "ruff" },
 ]
@@ -1096,11 +1096,13 @@ requires-dist = [
     { name = "dagster" },
     { name = "dagster-aws" },
     { name = "dagster-dbt" },
+    { name = "dagster-dg-cli" },
     { name = "dagster-dlt" },
     { name = "dagster-duckdb" },
     { name = "dagster-evidence" },
     { name = "dagster-prometheus" },
     { name = "dagster-sling" },
+    { name = "dagster-webserver" },
     { name = "dbt-duckdb" },
     { name = "dlt", extras = ["s3", "parquet"] },
     { name = "numpy" },
@@ -1109,8 +1111,6 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "dagster-dg-cli" },
-    { name = "dagster-webserver" },
     { name = "pytest" },
     { name = "ruff" },
 ]
