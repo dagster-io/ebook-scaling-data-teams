@@ -36,8 +36,9 @@ class Export(dg.Component, dg.Model, dg.Resolvable):
                 tags={"team_size": "large", "owner": "data_engineering"},
             )
             def _upload_to_s3(export: S3Resource):
-                s3_client = export.get_client()
-                s3_path = "export.s3_path"
+                pass
+                # s3_client = export.get_client()
+                # s3_path = "export.s3_path"
 
                 # csv_data = "dddd"
 
