@@ -2,8 +2,8 @@ type: dagster_dlt.DltLoadCollectionComponent
 
 attributes:
   loads:
-    - source: .loads.my_load_source
-      pipeline: .loads.my_load_pipeline
+    - source: .loads.localstack_source
+      pipeline: .loads.localstack_pipeline
 
 post_processing:
   assets:
@@ -13,3 +13,4 @@ post_processing:
         tags:
           team_size: "medium"
           owner: "data_engineering"
+          kind: "dlt"

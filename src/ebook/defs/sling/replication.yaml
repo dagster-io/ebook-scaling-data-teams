@@ -3,7 +3,6 @@ target: MY_DUCKDB
 
 defaults:
   mode: full-refresh
-
   object: "{stream_schema}_{stream_table}"
 
 streams:

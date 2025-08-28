@@ -3,10 +3,18 @@ import subprocess
 import time
 from pathlib import Path
 
+import dagster as dg
 import pytest
 
+import ebook.defs
 
-@pytest.fixture(scope="session", autouse=True)
+
+@pytest.fixture()
+def defs():
+    return dg.components.load_defs(ebook.defs)
+
+
+@pytest.fixture(scope="session")
 def docker_compose():
     # Start Docker Compose
     file_path = Path(__file__).absolute().parent.parent / "docker-compose.yaml"
@@ -32,7 +40,7 @@ def docker_compose():
     subprocess.run(["docker", "compose", "-f", file_path, "down"], check=True)
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="session")
 def dbt_project():
     dir = os.path.join(
         os.path.dirname(__file__),

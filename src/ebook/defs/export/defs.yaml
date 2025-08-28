@@ -1,0 +1,19 @@
+type: ebook.components.export.Export
+
+attributes:
+  s3_bucket: jaffle-shop-classic
+  s3_region: us-east-1
+  export_steps:
+    - table: customers
+      s3_path: customers.csv
+    - table: stg_payments
+      s3_path: orders.csv
+
+post_processing:
+  assets:
+    - target: "*"
+      attributes:
+        group_name: "export"
+        tags:
+          team_size: "large"
+          owner: "data_engineering"

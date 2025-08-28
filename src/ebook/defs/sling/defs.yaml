@@ -27,3 +27,6 @@ post_processing:
     - target: "not kind:sling"
       attributes:
         group_name: "raw_source"
+        tags:
+          team_size: "small"
+          owner: "data_engineering"

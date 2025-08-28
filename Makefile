@@ -3,10 +3,10 @@ ruff:
 	ruff format .
 
 test_unit:
-	pytest tests -m "not integration"
+	pytest tests -m "not integration" -v --disable-warnings
 
 test_integration:
-	pytest tests -m "integration"
+	pytest tests -m "integration" -v --disable-warnings
 
 test_all:
-	pytest tests
+	pytest tests -v --disable-warnings
