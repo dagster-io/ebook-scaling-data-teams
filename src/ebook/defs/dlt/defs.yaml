@@ -13,4 +13,3 @@ post_processing:
         tags:
           team_size: "medium"
           owner: "data_engineering"
-          kind: "dlt"

@@ -12,7 +12,7 @@ attributes:
         password: test_pass
       - name: MY_DUCKDB
         type: duckdb
-        instance: "{{ env('DUCKDB_DATABASE', '/tmp/dbt_project.duckdb') }}"
+        instance: "{{ env('DUCKDB_DATABASE', '/tmp/ebook.duckdb') }}"
   replications:
     - path: replication.yaml
 

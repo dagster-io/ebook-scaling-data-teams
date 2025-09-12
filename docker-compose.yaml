@@ -14,40 +14,6 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
 
-  prometheus:
-    image: prom/prometheus:latest
-    container_name: prometheus
-    volumes:
-      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./data/prometheus:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-    ports:
-      - "9090:9090"
-    restart: unless-stopped
-
-  grafana:
-    image: grafana/grafana:latest
-    container_name: grafana
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-    volumes:
-      - ./data/grafana:/var/lib/grafana
-      - ./config/grafana:/etc/grafana/provisioning/dashboards
-    ports:
-      - "8081:3000"
-    depends_on:
-      - prometheus
-    restart: unless-stopped
-
-  aggregation-gateway:
-    image: ghcr.io/zapier/prom-aggregation-gateway:latest
-    container_name: aggregation-gateway
-    ports:
-        - "80:80"
-    restart: unless-stopped
-
   localstack:
     image: localstack/localstack:latest
     container_name: localstack

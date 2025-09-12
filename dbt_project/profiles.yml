@@ -1,11 +1,7 @@
 profile:
   target: dev
   outputs:
-    prod:
-      type: duckdb
-      path: "{{ env_var('DUCKDB_DATABASE') }}"
-      threads: 8
     dev:
       type: duckdb
-      path: "{{ env_var('DUCKDB_DATABASE', '/tmp/dbt_project.duckdb') }}"
+      path: "{{ env_var('DUCKDB_DATABASE', '/tmp/ebook.duckdb') }}"
       threads: 1
