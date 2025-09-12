@@ -1,7 +1,6 @@
 import io
 
 import dagster as dg
-import pandas as pd
 from dagster_aws.s3 import S3Resource
 from dagster_duckdb import DuckDBResource
 
