@@ -15,7 +15,7 @@ from dagster_duckdb import DuckDBResource
     kinds={"duckdb"},
 )
 def stocks(context: dg.AssetExecutionContext, database: DuckDBResource) -> None:
-    query = f"""
+    query = """
         CREATE TABLE IF NOT EXISTS stocks AS (
             SELECT * FROM localstack_data.stock_1_data
             UNION ALL
@@ -24,4 +24,4 @@ def stocks(context: dg.AssetExecutionContext, database: DuckDBResource) -> None:
     """
 
     with database.get_connection() as conn:
-        df = conn.execute(query)
+        conn.execute(query)

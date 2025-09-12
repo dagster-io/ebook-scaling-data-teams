@@ -1,5 +1,4 @@
 import dagster as dg
-import numpy as np
 import pandas as pd
 from dagster_duckdb import DuckDBResource
 
