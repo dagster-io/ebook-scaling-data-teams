@@ -11,8 +11,6 @@ dependencies = [
     "dagster-duckdb",
     "dagster-dlt",
     "dagster-sling",
-    "dagster-evidence",
-    "dagster-prometheus",
     "dbt-duckdb",
     "dlt[s3, parquet]",
     "pandas",

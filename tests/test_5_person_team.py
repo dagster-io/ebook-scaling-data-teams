@@ -64,7 +64,7 @@ def test_5_person_team(defs, docker_compose, dbt_project):  # noqa: F811
             defs.get_assets_def("customer_analysis"),
             defs.get_assets_def(dg.AssetKey(["localstack_data", "stock_1_data"])),
             defs.get_assets_def(dg.AssetKey(["localstack_data", "stock_2_data"])),
-            defs.get_assets_def("s3_analysis"),
+            defs.get_assets_def("stocks"),
         ],
         resources={
             "database": duckdb_resource,

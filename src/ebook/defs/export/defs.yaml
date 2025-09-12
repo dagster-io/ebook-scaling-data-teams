@@ -1,13 +1,14 @@
 type: ebook.components.export.Export
 
 attributes:
-  s3_bucket: jaffle-shop-classic
+  s3_bucket: ebook
   s3_region: us-east-1
+  duckdb_database: /tmp/ebook.duckdb
   export_steps:
     - table: customers
       s3_path: customers.csv
     - table: stg_payments
-      s3_path: orders.csv
+      s3_path: payments.csv
 
 post_processing:
   assets:
