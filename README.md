@@ -32,7 +32,7 @@ This project demonstrates data engineering patterns for different organizational
 docker-compose up -d
 ```
 
-### 4. Run Dagster Development Server
+### Run Dagster Web Server
 
 ```bash
 dg dev
@@ -43,19 +43,17 @@ The Dagster UI will be available at [http://localhost:3000](http://localhost:300
 ## 📁 Project Structure
 
 ```
-├── src/ebook/                     # Main Python package
-│   ├── components/                # Reusable Dagster components
-│   │   └── export.py             # S3 export component
+├── src/ebook/                    # Main Dagster Python package
+│   ├── components/               # Reusable Dagster components
+│   │   └── export.py             # Custom Dagster S3 export component
 │   ├── defs/                     # Dagster definitions
 │   │   ├── assets/               # Data assets
 │   │   ├── dbt/                  # dbt integration
-│   │   ├── dlt/                  # Data loading definitions
-│   │   ├── export/               # Export configurations
-│   │   └── sling/                # Sling replication configs
+│   │   ├── dlt/                  # dlt integration
+│   │   ├── export/               # Custom Dagster S3 component configuration
+│   │   └── sling/                # Sling integration
 │   └── definitions.py            # Main definitions entry point
 ├── dbt_project/                  # dbt transformations
 ├── tests/                        # Test scenarios by team size
-├── config/                       # Configuration files
-├── data/                         # Local data storage
-└── docker-compose.yaml          # Infrastructure services
+└── docker-compose.yaml           # Infrastructure services
 ```
