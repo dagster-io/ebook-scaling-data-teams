@@ -12,7 +12,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   localstack:
     image: localstack/localstack:latest
@@ -26,6 +26,10 @@ services:
       - AWS_DEFAULT_REGION=us-east-1
       - PERSISTENCE=1
     volumes:
-      - ./localstack_data:/var/lib/localstack
+      - localstackdata:/var/lib/localstack
       - ./localstack:/etc/localstack/init/ready.d:ro
     restart: unless-stopped
+
+volumes:
+  pgdata:
+  localstackdata:
