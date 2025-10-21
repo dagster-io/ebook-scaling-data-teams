@@ -1,7 +1,7 @@
 import dagster as dg
 from dagster_duckdb import DuckDBResource
 
-from ebook.defs.assets.flaky import FlakyResource
+from ebook.defs.assets.retries import FlakyResource
 
 flaky_resource = FlakyResource()
 
