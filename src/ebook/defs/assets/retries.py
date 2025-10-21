@@ -15,7 +15,7 @@ class FlakyResource(dg.ConfigurableResource):
     deps=["customers"],
     group_name="analysis",
     tags={
-        "team_size": "large",
+        "team_size": "x-large",
         "owner": "analytics_engineering",
     },
 )
