@@ -5,4 +5,3 @@ COPY --from=ghcr.io/astral-sh/uv:0.6.10 /uv /bin/uv
 
 COPY pyproject.toml .
 RUN uv pip install -r pyproject.toml --system
-RUN uv pip install -e . --system
