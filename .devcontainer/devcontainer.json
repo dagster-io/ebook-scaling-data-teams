@@ -1,5 +1,5 @@
 {
-    "name": "High Impact Engineering",
+    "name": "Scaling Data Teams",
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
@@ -14,6 +14,5 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-    },
-    "postStartCommand": "bash script.sh"
+    }
 }

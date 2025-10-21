@@ -1,4 +1,4 @@
-# High Impact Engineering - Data Platform
+# Scaling Data Teams
 
 A comprehensive data engineering platform demonstrating best practices and patterns for teams of different sizes. This project showcases how data engineering practices evolve from individual contributors to large-scale engineering organizations.
 
