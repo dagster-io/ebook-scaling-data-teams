@@ -1,7 +1,7 @@
 import dagster as dg
 import pytest
 
-from src.ebook.defs.assets.flaky import flaky_asset
+from src.ebook.defs.assets.retries import flaky_asset
 from tests.fixtures import defs  # noqa: F401
 
 
