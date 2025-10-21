@@ -1,5 +1,5 @@
 {
-    "name": "High Impact Engineering",
+    "name": "Scaling Data Teams",
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
