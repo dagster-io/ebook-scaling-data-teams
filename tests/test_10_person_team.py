@@ -27,6 +27,7 @@ def test_scaffold_export():
         assert (defs_path / "defs.yaml").exists()
 
 
+@pytest.mark.integration
 def test_export_component(defs, docker_compose, dbt_project):  # noqa: F811
     with create_defs_folder_sandbox() as sandbox:
         defs_path = sandbox.scaffold_component(component_cls=Export)
