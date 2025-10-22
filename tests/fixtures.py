@@ -24,15 +24,35 @@ def docker_compose():
         capture_output=True,
     )
 
-    max_retries = 5
+    # Wait for PostgreSQL to be ready
+    max_retries = 12  # Increased retries for CI
     for i in range(max_retries):
         result = subprocess.run(
-            ["docker", "exec", "postgresql", "pg_isready"],
+            ["docker", "exec", "postgresql", "pg_isready", "-U", "test_user", "-d", "test_db"],
             capture_output=True,
         )
         if result.returncode == 0:
             break
         time.sleep(5)
+    else:
+        # If we get here, PostgreSQL never became ready
+        subprocess.run(["docker", "compose", "-f", file_path, "logs", "postgresql"], check=False)
+        raise RuntimeError("PostgreSQL failed to start within timeout")
+
+    # Wait for LocalStack to be ready
+    max_retries = 12
+    for i in range(max_retries):
+        result = subprocess.run(
+            ["curl", "-f", "http://localhost:4566/_localstack/health"],
+            capture_output=True,
+        )
+        if result.returncode == 0:
+            break
+        time.sleep(5)
+    else:
+        # If we get here, LocalStack never became ready
+        subprocess.run(["docker", "compose", "-f", file_path, "logs", "localstack"], check=False)
+        raise RuntimeError("LocalStack failed to start within timeout")
 
     yield
 
