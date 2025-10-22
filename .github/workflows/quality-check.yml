@@ -32,5 +32,15 @@ jobs:
       - name: Ruff
         run: uv run ruff check
 
+      - name: Docker Compose
+        run: docker-compose up -d
+
+      - name: Wait for Postgres
+        run: |
+          timeout 30 bash -c 'until pg_isready -h localhost -p 5432 -U test_user -d test_db; do sleep 2; done'
+
       - name: Pytest
         run: uv run pytest tests -v
+
+      - name: Docker Compose Down
+        run: docker-compose down
