@@ -1,6 +1,9 @@
+import pytest
+
 from tests.fixtures import defs  # noqa: F401
 
 
+@pytest.mark.integration
 def test_project(defs):  # noqa: F811
     assert defs
 
