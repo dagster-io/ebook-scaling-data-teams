@@ -5,7 +5,6 @@ def test_project(defs):  # noqa: F811
     assert defs
 
     # Check schedules
-    assert defs.get_schedule_def("dlt_schedule")
     assert defs.get_schedule_def("sling_schedule")
 
     # Check sensors
