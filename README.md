@@ -26,6 +26,20 @@ This project demonstrates data engineering patterns for different organizational
 - **10 Person Team** - Medium team structure with specialized roles
 - **20 Person Team** - Large team patterns with advanced orchestration
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [uv](https://docs.astral.sh/uv/) - Python dependency management
+- [Docker](https://www.docker.com/) - For running infrastructure services
+
+### Install Dependencies
+
+```bash
+uv sync
+source .venv/bin/activate
+```
+
 ### Start Infrastructure Services
 
 ```bash
